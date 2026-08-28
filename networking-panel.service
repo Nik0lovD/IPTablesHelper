@@ -1,0 +1,16 @@
+[Unit]
+Description=Networking Port Panel
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/networking-panel
+Environment=NODE_ENV=production
+Environment=PORT=8787
+ExecStart=/usr/bin/node /opt/networking-panel/server/index.js
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
